@@ -19,7 +19,12 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding.etTotal.doAfterTextChanged { text ->
-            viewModel.onTotalChanged(text.toString().toInt())
+            val bill = if (text.toString().isEmpty()) {
+                0
+            } else {
+                text.toString().toInt()
+            }
+            viewModel.onTotalChanged(bill)
         }
 
         binding.sbTipPercentage.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
