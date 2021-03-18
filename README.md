@@ -11,7 +11,7 @@ Tipping is a way to show your satisfaction and your gratitude for the service yo
 it's a pain in the neck to calculate the amount of tip, so let's create a handy tool that will 
 make it easier!
 
-![Screenshot](./docs/screenshot.png)
+<img src="./docs/screenshot.png" alt="App's screenshot" width="300" height="633"> 
 
 ## General information
 
