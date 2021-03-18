@@ -36,5 +36,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+
+        viewModel.percentageTipValue.observe(this, { percentageTipValue ->
+            binding.tvTipPercentageValue.text = percentageTipValue
+        })
     }
 }
