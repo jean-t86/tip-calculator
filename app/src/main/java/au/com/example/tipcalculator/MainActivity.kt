@@ -19,21 +19,30 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding.etTotal.doAfterTextChanged { text ->
-            TODO("Not yet implemented")
+            val bill = if (text.toString().isEmpty()) {
+                0
+            } else {
+                text.toString().toInt()
+            }
+            viewModel.onTotalChanged(bill)
         }
 
         binding.sbTipPercentage.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                TODO("Not yet implemented")
+                viewModel.onTipPercentageChanged(progress)
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
-            }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
+        viewModel.percentageTipValue.observe(this, { percentageTipValue ->
+            binding.tvTipPercentageValue.text = percentageTipValue
+        })
+
+        viewModel.tipValue.observe(this, { tipValue ->
+            binding.tvCalculatedTip.text = tipValue
         })
     }
 }
