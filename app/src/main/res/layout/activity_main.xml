@@ -42,6 +42,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/tip_percentage_hint"
+        android:paddingStart="@dimen/half_standard_padding_margin"
+        android:paddingEnd="@dimen/half_standard_padding_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/sbTipPercentage"
         app:layout_constraintTop_toTopOf="@id/sbTipPercentage" />
