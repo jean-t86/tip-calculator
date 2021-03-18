@@ -31,6 +31,8 @@
         android:id="@+id/tvTipPercentageValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/half_standard_padding_margin"
+        android:layout_marginEnd="@dimen/half_standard_padding_margin"
         android:hint="@string/tip_percentage_hint"
         app:layout_constraintStart_toEndOf="@id/tvTipPercentage"
         app:layout_constraintTop_toTopOf="@id/tvTipPercentage" />
@@ -58,6 +60,8 @@
         android:id="@+id/tvCalculatedTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/half_standard_padding_margin"
+        android:layout_marginEnd="@dimen/half_standard_padding_margin"
         android:hint="@string/tip_total_hint"
         app:layout_constraintStart_toEndOf="@id/tvTotalTip"
         app:layout_constraintTop_toTopOf="@id/tvTotalTip" />

@@ -29,6 +29,7 @@ class MainViewModel : ViewModel() {
     }
 
     private fun calculateTip() {
-        _tipValue.value = "$${billTotal * percentageTip}"
+        val tip = billTotal * (percentageTip / 100.0)
+        _tipValue.value = "$${tip.toInt()}"
     }
 }
