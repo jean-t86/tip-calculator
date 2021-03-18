@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.etTotal.doAfterTextChanged { text ->
             val bill = if (text.toString().isEmpty()) {
-                0
+                0L
             } else {
-                text.toString().toInt()
+                text.toString().toLong()
             }
             viewModel.onTotalChanged(bill)
         }
