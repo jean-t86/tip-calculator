@@ -3,11 +3,17 @@ package au.com.example.tipcalculator
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
+
+    private var billTotal = 0
+    private var percentageTip = 0
+
     fun onTotalChanged(billTotal: Int) {
-        TODO("Not yet implemented")
+        this.billTotal = billTotal
     }
 
     fun onTipPercentageChanged(percentageTip: Int) {
-        TODO("Not yet implemented")
+        this.percentageTip = percentageTip
     }
+
+    private fun calculateTip() = billTotal * percentageTip
 }
