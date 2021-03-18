@@ -40,5 +40,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.percentageTipValue.observe(this, { percentageTipValue ->
             binding.tvTipPercentageValue.text = percentageTipValue
         })
+
+        viewModel.tipValue.observe(this, { tipValue ->
+            binding.tvCalculatedTip.text = tipValue
+        })
     }
 }
