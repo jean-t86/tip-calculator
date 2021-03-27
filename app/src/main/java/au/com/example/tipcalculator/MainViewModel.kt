@@ -14,7 +14,7 @@ class MainViewModel : ViewModel() {
     val tipValue: LiveData<String>
         get() = _tipValue
 
-    private var billTotal = 0
+    private var billTotal = 0L
     private var percentageTip = 0
 
     fun onTotalChanged(billTotalStr: String) {
