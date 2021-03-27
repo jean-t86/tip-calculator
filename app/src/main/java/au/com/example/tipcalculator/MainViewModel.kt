@@ -17,8 +17,12 @@ class MainViewModel : ViewModel() {
     private var billTotal = 0L
     private var percentageTip = 0
 
-    fun onTotalChanged(billTotal: Long) {
-        this.billTotal = billTotal
+    fun onTotalChanged(billTotalStr: String) {
+        val billTotal = if (billTotalStr.isEmpty()) {
+            0L
+        } else {
+            billTotalStr.toLong()
+        }
         calculateTip()
     }
 

@@ -7,7 +7,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import au.com.example.tipcalculator.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class   MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var viewModel: MainViewModel
@@ -19,12 +19,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding.etTotal.doAfterTextChanged { text ->
-            val bill = if (text.toString().isEmpty()) {
-                0L
-            } else {
-                text.toString().toLong()
-            }
-            viewModel.onTotalChanged(bill)
+            viewModel.onTotalChanged(text.toString())
         }
 
         binding.sbTipPercentage.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
