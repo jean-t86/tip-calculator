@@ -14,14 +14,14 @@ class MainViewModel : ViewModel() {
     val tipValue: LiveData<String>
         get() = _tipValue
 
-    private var billTotal = 0L
+    private var billTotal: Double = 0.0
     private var percentageTip = 0
 
     fun onTotalChanged(billTotalStr: String) {
         billTotal = if (billTotalStr.isEmpty()) {
-            0L
+            0.0
         } else {
-            billTotalStr.toLong()
+            billTotalStr.toDouble()
         }
         calculateTip()
     }
