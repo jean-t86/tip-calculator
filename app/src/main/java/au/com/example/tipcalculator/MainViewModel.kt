@@ -10,7 +10,7 @@ class MainViewModel : ViewModel() {
     val percentageTipValue: LiveData<String>
         get() = _percentageTipValue
 
-    private val _tipValue: MutableLiveData<String> = MutableLiveData("$0")
+    private val _tipValue: MutableLiveData<String> = MutableLiveData("$0.00")
     val tipValue: LiveData<String>
         get() = _tipValue
 
@@ -18,7 +18,7 @@ class MainViewModel : ViewModel() {
     private var percentageTip = 0
 
     fun onTotalChanged(billTotalStr: String) {
-        val billTotal = if (billTotalStr.isEmpty()) {
+        billTotal = if (billTotalStr.isEmpty()) {
             0L
         } else {
             billTotalStr.toLong()
@@ -34,6 +34,7 @@ class MainViewModel : ViewModel() {
 
     private fun calculateTip() {
         val tip = billTotal * (percentageTip / 100.0)
-        _tipValue.value = "$${tip.toInt()}"
+        val tipValue = "%.2f".format(tip)
+        _tipValue.value = "$$tipValue"
     }
 }
