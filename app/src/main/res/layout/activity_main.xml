@@ -19,34 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTipPercentage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/standard_padding_margin"
-        android:text="@string/tip_percentage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etTotal" />
 
-    <TextView
-        android:id="@+id/tvTipPercentageValue"
-        android:layout_width="wrap_content"
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slTipPercentage"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/half_standard_padding_margin"
-        android:layout_marginEnd="@dimen/half_standard_padding_margin"
-        android:hint="@string/tip_percentage_hint"
-        app:layout_constraintStart_toEndOf="@id/tvTipPercentage"
-        app:layout_constraintTop_toTopOf="@id/tvTipPercentage" />
-
-    <SeekBar
-        android:id="@+id/sbTipPercentage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/half_standard_padding_margin"
-        android:max="100"
+        android:stepSize="1"
+        android:valueFrom="1"
+        android:valueTo="100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTipPercentage" />
+        app:layout_constraintTop_toBottomOf="@id/etTotal" />
 
     <TextView
         android:id="@+id/tvTotalTip"
@@ -55,7 +38,7 @@
         android:layout_marginTop="@dimen/standard_padding_margin"
         android:text="@string/tip_total"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sbTipPercentage" />
+        app:layout_constraintTop_toBottomOf="@id/slTipPercentage" />
 
     <TextView
         android:id="@+id/tvCalculatedTip"

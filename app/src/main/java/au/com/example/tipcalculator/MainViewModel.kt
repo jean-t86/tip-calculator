@@ -6,16 +6,12 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
-    private val _percentageTipValue: MutableLiveData<String> = MutableLiveData("0%")
-    val percentageTipValue: LiveData<String>
-        get() = _percentageTipValue
-
     private val _tipValue: MutableLiveData<String> = MutableLiveData("$0.00")
     val tipValue: LiveData<String>
         get() = _tipValue
 
     private var billTotal: Double = 0.0
-    private var percentageTip = 0
+    private var percentageTip = 0f
 
     fun onTotalChanged(billTotalStr: String) {
         billTotal = if (billTotalStr.isEmpty()) {
@@ -26,9 +22,8 @@ class MainViewModel : ViewModel() {
         calculateTip()
     }
 
-    fun onTipPercentageChanged(percentageTip: Int) {
+    fun onTipPercentageChanged(percentageTip: Float) {
         this.percentageTip = percentageTip
-        _percentageTipValue.value = "$percentageTip%"
         calculateTip()
     }
 

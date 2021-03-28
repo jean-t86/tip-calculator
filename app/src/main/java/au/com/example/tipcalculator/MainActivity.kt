@@ -1,13 +1,12 @@
 package au.com.example.tipcalculator
 
 import android.os.Bundle
-import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import au.com.example.tipcalculator.databinding.ActivityMainBinding
 
-class   MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var viewModel: MainViewModel
@@ -22,19 +21,9 @@ class   MainActivity : AppCompatActivity() {
             viewModel.onTotalChanged(text.toString())
         }
 
-        binding.sbTipPercentage.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                viewModel.onTipPercentageChanged(progress)
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        viewModel.percentageTipValue.observe(this, { percentageTipValue ->
-            binding.tvTipPercentageValue.text = percentageTipValue
-        })
+        binding.slTipPercentage.addOnChangeListener { _, value, _ ->
+            viewModel.onTipPercentageChanged(value)
+        }
 
         viewModel.tipValue.observe(this, { tipValue ->
             binding.tvCalculatedTip.text = tipValue
